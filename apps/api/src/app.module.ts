@@ -26,6 +26,8 @@ import { IntelligenceHubModule } from './intelligence-hub/stellar/intelligence-h
 import { AssetDiscoveryModule } from './api/assets/discovery/stellar/asset-discovery.module';
 import { RecommendationMetricsModule } from './metrics/recommendations/recommendation-metrics.module';
 import { StellarEcosystemMetricsModule } from './metrics/ecosystem/stellar/stellar-ecosystem-metrics.module';
+import { StellarProviderDiscoveryModule } from '../../../src/providers/discovery/stellar/stellar-provider-discovery.module';
+import { AssetCoverageModule } from '../../../src/analytics/coverage/stellar/asset-coverage.module';
 import { RouteInsightsExporterModule } from './exporters/routes/stellar/route-insights-exporter.module';
 
 @Module({
@@ -65,6 +67,8 @@ import { RouteInsightsExporterModule } from './exporters/routes/stellar/route-in
     AssetDiscoveryModule,
     RecommendationMetricsModule,
     StellarEcosystemMetricsModule,
+    StellarProviderDiscoveryModule,
+    AssetCoverageModule,
     ThrottlerModule.forRoot([
       {
         ttl: 60000,
