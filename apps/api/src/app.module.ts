@@ -29,6 +29,8 @@ import { StellarEcosystemMetricsModule } from './metrics/ecosystem/stellar/stell
 import { StellarProviderDiscoveryModule } from '../../../src/providers/discovery/stellar/stellar-provider-discovery.module';
 import { AssetCoverageModule } from '../../../src/analytics/coverage/stellar/asset-coverage.module';
 import { RouteInsightsExporterModule } from './exporters/routes/stellar/route-insights-exporter.module';
+import { SorobanLifecycleModule } from './analytics/lifecycle/transfers/stellar/soroban-lifecycle.module';
+import { SorobanTransferLifecycleEntity } from './analytics/lifecycle/transfers/stellar/entities/soroban-transfer-lifecycle.entity';
 
 @Module({
   imports: [
@@ -47,7 +49,7 @@ import { RouteInsightsExporterModule } from './exporters/routes/stellar/route-in
           password: dbConfig.password,
           database: dbConfig.database,
           ssl: dbConfig.ssl,
-          entities: [Transaction, WalletSession],
+          entities: [Transaction, WalletSession, SorobanTransferLifecycleEntity],
           synchronize: process.env.NODE_ENV === 'development',
           logging: process.env.NODE_ENV === 'development',
         };
@@ -79,6 +81,7 @@ import { RouteInsightsExporterModule } from './exporters/routes/stellar/route-in
     // Exposed through /explainability/stellar endpoints.
     StellarExplainabilityModule,
     RouteInsightsExporterModule,
+    SorobanLifecycleModule,
   ],
   controllers: [AppController],
   providers: [
