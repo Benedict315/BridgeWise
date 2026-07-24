@@ -31,11 +31,13 @@ import { AssetCoverageModule } from '../../../src/analytics/coverage/stellar/ass
 import { RouteInsightsExporterModule } from './exporters/routes/stellar/route-insights-exporter.module';
 import { SorobanLifecycleModule } from './analytics/lifecycle/transfers/stellar/soroban-lifecycle.module';
 import { SorobanTransferLifecycleEntity } from './analytics/lifecycle/transfers/stellar/entities/soroban-transfer-lifecycle.entity';
+import { QuotesModule } from './quotes/quotes.module';
 
 @Module({
   imports: [
     LoggerModule,
     ConfigModule,
+    QuotesModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
