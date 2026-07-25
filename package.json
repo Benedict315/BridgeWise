@@ -91,7 +91,7 @@
     "rootDir": ".",
     "testRegex": ".*\\.(test|spec)\\.(ts|tsx|js|jsx)$",
     "transform": {
-      "^.+\\.(t|j)sx?$": "ts-jest"
+      "^.+\\.(t|j)sx?$": ["ts-jest", { "tsconfig": { "jsx": "react-jsx" } }]
     },
     "collectCoverageFrom": [
       "src/**/*.(t|j)sx?",
@@ -106,7 +106,11 @@
     ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
-      "^@bridgewise/ui-components(.*)$": "<rootDir>/libs/ui-components/src$1"
+      "^@bridgewise/ui-components(.*)$": "<rootDir>/libs/ui-components/src$1",
+      "^react$": "<rootDir>/node_modules/react",
+      "^react/(.*)$": "<rootDir>/node_modules/react/$1",
+      "^react-dom$": "<rootDir>/node_modules/react-dom",
+      "^react-dom/(.*)$": "<rootDir>/node_modules/react-dom/$1"
     }
   }
 }
