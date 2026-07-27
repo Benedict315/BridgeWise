@@ -6,6 +6,10 @@
 /.pnp
 .pnp.js
 
+# rust
+**/target/
+**/Cargo.lock
+
 # testing
 /coverage
 
@@ -48,6 +52,11 @@ build_output.log
 *.tsbuildinfo
 next-env.d.ts
 libs/bridge-core/node_modules
+
+# hardhat
+artifacts/
+cache/
+types/
 
 # Secret files
 *.key
